@@ -270,7 +270,7 @@ exit(void)
 }
 
 void
-exitS(void)
+exitS(int status)
 {
   struct proc *curproc = myproc();
   struct proc *p;
@@ -308,6 +308,7 @@ exitS(void)
 
   // Jump into the scheduler, never to return.
   curproc->state = ZOMBIE;
+  curproc->Exitstatus = status;
   sched();
   panic("zombie exit");
 }

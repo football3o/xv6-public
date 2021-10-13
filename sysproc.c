@@ -89,6 +89,17 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+ 
+void //lab1 sys call
+sys_exitS(void)
+{
+  int exit_Status;
+  if(argint(0, &exit_Status) < 0){
+    return -1;
+   }
+  return exitS(exit_Status);
+}
+
 
 //9-30 lab
 int
