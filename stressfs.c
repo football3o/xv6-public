@@ -13,6 +13,8 @@
 #include "fs.h"
 #include "fcntl.h"
 
+#define NULL 0
+
 int
 main(int argc, char *argv[])
 {

@@ -21,9 +21,9 @@ sys_exit(void)
 }
 
 int
-sys_wait(NULL)
+sys_wait(void)
 {
-  return wait(NULL);
+  return wait((void*)0);
 }
 
 int
@@ -95,7 +95,7 @@ sys_exitS(void)
 {
   int exit_Status;
   if(argint(0, &exit_Status) < 0){
-    return -1;
+    return exitS(-1);
    }
   return exitS(exit_Status);
 }

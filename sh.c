@@ -3,6 +3,7 @@
 #include "types.h"
 #include "user.h"
 #include "fcntl.h"
+//#include "stdio.h"
 
 // Parsed command representation
 #define EXEC  1
@@ -10,6 +11,7 @@
 #define PIPE  3
 #define LIST  4
 #define BACK  5
+#define NULL 0
 
 #define MAXARGS 10
 
