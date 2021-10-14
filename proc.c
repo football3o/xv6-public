@@ -270,7 +270,7 @@ exit(void)
 }
 
 void
-exitS(void)
+exitS(int status)
 {
   struct proc *curproc = myproc();
   struct proc *p;
