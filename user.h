@@ -23,6 +23,7 @@ int getpid(void);
 char* sbrk(int);
 int sleep(int);
 int uptime(void);
+int exitS(int);  //lab1
 void greeting(void);  //9-30 lab
 
 // ulib.c

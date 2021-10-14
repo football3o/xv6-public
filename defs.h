@@ -122,6 +122,8 @@ void            wakeup(void*);
 void            yield(void);
 void            greeting(void);  //9-30 lab
 
+void            exitS(int); // lab 1
+
 // swtch.S
 void            swtch(struct context**, struct context*);
 
