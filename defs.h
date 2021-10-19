@@ -123,7 +123,7 @@ void            yield(void);
 void            greeting(void);  //9-30 lab
 
 void            exitS(int); // lab 1
-
+int             waitpid(int, int*, int);
 // swtch.S
 void            swtch(struct context**, struct context*);
 
