@@ -335,7 +335,7 @@ wait(int* status)
         // Found one.
         //lab1
         statusV = p->Exitstatus;
-        cprintf("this is the status child %d should have: %d\n", p->pid,statusV);
+        
         if(status == ((void*)0)){ 
           //discard status
           *status = 0;
@@ -372,7 +372,7 @@ int
 waitpid(int pid, int* status, int options)
 {
   struct proc *p;
-  int statusV;
+  int statusV, i;
   struct proc *curproc = myproc();
   
   
@@ -382,7 +382,7 @@ waitpid(int pid, int* status, int options)
       release(&ptable.lock);
       return -1;
   }
-
+  i=0;
   for(;;){
     // Scan through table looking for exited process pid
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
@@ -412,10 +412,14 @@ waitpid(int pid, int* status, int options)
         release(&ptable.lock);
         return pid;
       }
+      else if(options == 1){//WNOHANG, process is still running
+        release(&ptable.lock);
+        return 0;//process is still running
+      }
     }
-
-    // No point waiting if we don't have any children.
-    if(curproc->killed){
+    i++;
+    // No point waiting if the process doesnt exist
+    if(curproc->killed||i>=NPROC){
       release(&ptable.lock);
       return -1;
     }
