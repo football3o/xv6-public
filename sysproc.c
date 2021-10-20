@@ -111,14 +111,18 @@ sys_wait(void)
 int
 sys_waitpid(void)
 {
-  int pid;
+  int pid, option;
   char* status;
   if(argint(0, &pid) < 0){
     pid = -1;
   }
   if(argptr(1, &status, sizeof(int)) < 0)
-    return waitpid(pid,(int*)0,1);
-  return waitpid(pid,(int*)status,1);
+    status = (char*)0;
+  if(argint(2, &option) < 0){
+    option = 0;
+  }
+ 
+  return waitpid(pid,(int*)status,option);
 }
 //lab1 END
 
