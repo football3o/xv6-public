@@ -126,10 +126,4 @@ sys_waitpid(void)
 }
 //lab1 END
 
-//9-30 lab
-int
-sys_greeting(void)
-{
-  greeting();
-  return 0;
-}
+

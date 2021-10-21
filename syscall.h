@@ -20,6 +20,5 @@
 #define SYS_link   19
 #define SYS_mkdir  20
 #define SYS_close  21
-#define SYS_greeting 22 //lab on 9-30
-#define SYS_exitS  23
-#define SYS_waitpid  24 
+#define SYS_exitS  22
+#define SYS_waitpid  23
